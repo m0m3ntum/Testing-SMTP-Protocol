@@ -39,7 +39,7 @@ except socket.error, (message):#Here we get the exception, if any
 print 'Connection with the server established!\n'
 
 
-server_msg=s.recv(1024)    
+server_msg=s.recv(1024) #Receive message from server   
 print server_msg
 
 message_to_send = "EHLO gmx\r\n"   
@@ -48,31 +48,31 @@ print server_msg
 
 
 From=raw_input("Insert Mail From: ") 
-#From = 'isicg14110@teiath.gr'      
-message_to_send = "MAIL FROM: <"+From+">\r\n"
-server_msg = sendServerMessage( message_to_send ,s)    
+#From = 'testUser@domain.gr'      
+message_to_send = "MAIL FROM: <"+From+">\r\n" #Creating Sender SMPT HEADER
+server_msg = sendServerMessage( message_to_send ,s)  #Send message  
 print server_msg    
 
 
 To=raw_input("TO:")  
-#To = 'fotisgalanis@hotmail.com' 
-message_to_send = "RCPT TO: <"+To+">\r\n"   
-server_msg = sendServerMessage( message_to_send ,s)    
+#To = 'testUser@domain.gr' 
+message_to_send = "RCPT TO: <"+To+">\r\n"  #Creating receiver SMPT HEADER 
+server_msg = sendServerMessage( message_to_send ,s)   #Send message  
 print server_msg  
 
 
-message_to_send = "DATA\r\n"    
-server_msg = sendServerMessage( message_to_send ,s)    
+message_to_send = "DATA\r\n"    #Send message to server that is going to take DATA
+server_msg = sendServerMessage( message_to_send ,s)  #Send message  
 print server_msg    
 
 
-Subject=raw_input("Subject: ")    
-Text=raw_input("Message:")    
+Subject=raw_input("Subject: ")  #Creating SUBJECT    
+Text=raw_input("Message:")    #Creating MESSAGE
 message_to_send = "Subject: "+Subject+"\r\n\r\n"+Text+"\r\n.\r\n"
 server_msg = sendServerMessage( message_to_send ,s)    
 print server_msg
 
-s.send("QUIT\r\n")
+s.send("QUIT\r\n") #Quit connection
 server_msg=s.recv(100000)   
 print server_msg
    
