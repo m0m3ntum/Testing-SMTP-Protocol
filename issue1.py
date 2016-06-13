@@ -30,7 +30,7 @@ def sendServerMessage( message_to_send ,s):
 
 try: #here we try to connect to the server. if not we get an exception
 	s=socket.socket()    
-	s.connect(('mail.teiath.gr',25))    
+	s.connect(('mail.domain.gr',25))    
 except socket.error, (message):#Here we get the exception, if any
 	if s:
 		s.close()
