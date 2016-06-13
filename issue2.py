@@ -64,7 +64,7 @@ try: #here we try to connect to the server. if not we get an exception
 
  s=socket.socket()    
 
- s.connect(('mail.teiath.gr',25))    
+ s.connect(('mail.domain.gr',25))    
 
 except socket.error, (message):#Here we get the exception, if any
 
@@ -100,7 +100,7 @@ print server_msg
 
 #From=raw_input("Insert Mail From: ") 
 
-From = 'isicg14110@teiath.gr'      
+From = 'user@domain.gr'      
 
 message_to_send = "MAIL FROM: <"+From+">\r\n"
 
@@ -114,7 +114,7 @@ print server_msg
 
 #To=raw_input("TO:")  
 
-To = 'foibosphyro@hotmail.com' 
+To = 'user@otherdomain.gr' 
 
 message_to_send = "RCPT TO: <"+To+">\r\n"   
 
@@ -142,7 +142,7 @@ Text=raw_input("Message:")
 
 #path=raw_input("Give image path:")
 
-path="/home/foivos/test.jpg"
+path="/home/user/test.jpg"
 
 #message_to_send = "Subject: "+Subject+"\r\n\r\n"+Text+"\r\n.\r\n"
 
